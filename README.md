@@ -1,20 +1,24 @@
   
-### Changes
-updated iw version 		-> 4.1.4
-updated libnl version		-> 3.4.0
+## Changes
+| what      |            | ver  |
+| ------------- |:-------------:| -----:|
+| updated iw version     |  | 4.1.4 |
+| updated libnl version     |      |  3.4.0 |
+| added   elf-cleaner | [elf-cleaner](https://github.com/cloned2k16/elf-cleaner.git "Elf Cleaner")    |   0.0.1 |
 
-added   elf-cleaner             -> 0.0.1    	[elf-cleaner](https://github.com/cloned2k16/elf-cleaner.git "Elf Cleaner")
-						( so you'll get clean executables directly ) 
 
-easier version handling ...
-you just need to drop the 2 required URL to the sources and it should work
-assuming they both are .tar* files 
+
+[elf-cleaner](https://github.com/cloned2k16/elf-cleaner.git "Elf Cleaner")
+( so you'll get clean executables directly ) 
+
+easier version handling ...  
+you just need to drop the 2 required URL to the sources and it should work  
+assuming they both are .tar* files   
   
   
   
-***
-*** Compile iw (the wireless LAN utility) for android.
-***
+#### Compile iw (the wireless LAN utility) for android.
+
 
 Usage:
 	Run ./build_all.sh, it will fetch and compile libnl and iw.
