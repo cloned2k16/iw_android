@@ -21,16 +21,13 @@ assuming they both are .tar* files
 
 
 Usage:
-	Run ./build_all.sh, it will fetch and compile libnl and iw.
+	./make_all.sh
+	  , it will fetch and compile libnl and iw.
 
-iw-4.1.tar.xz, libnl-3.2.25.tar.gz, will compile for android abi 4.9,
-and the android-21/arm platform. The only thing worth of note: I had
-to compile libnl statically, and then manually add "-lm" (the math library)
-to the list of iw's libraries: libnl uses the "lrint" function somewhere.
-Hence the Makefile patch.
-
+ 
 Assumes the android SDK in /usr/opt/android-ndk-r10e-linux-x86_64/.
-Output binary will be iw-4.1/iw, copy it somewhere to your mobile phone.
+Output binary will be iw-4.1.4/iw,  
+ copy it somewhere to your mobile phone.
 
 Tested on a Samsung Galaxy S4 Mini, running Cyanogenmod 12.1 (Android 5.0).
 
