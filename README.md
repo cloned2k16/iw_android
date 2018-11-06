@@ -20,15 +20,15 @@ assuming they both are .tar* files
 #### Compile iw (the wireless LAN utility) for android.
 
 
-Usage:
-	./make_all.sh
-	  , it will fetch and compile libnl and iw.
+Usage:  
+	./make_all.sh  
+	  , it will fetch and compile libnl and iw.   
 
  
-Assumes the android SDK in /usr/opt/android-ndk-r10e-linux-x86_64/.
-Output binary will be iw-4.1.4/iw,  
- copy it somewhere to your mobile phone.
-
+Assumes the android SDK in /usr/opt/android-ndk-r10e-linux-x86_64/.   
+Output binary will be iw-4.1.4/iw,   
+ copy it somewhere to your mobile phone.  
+   
 Tested on a Samsung Galaxy S4 Mini, running Cyanogenmod 12.1 (Android 5.0).
 
 	root@serranoltexx:/ # /data/_bin/iw --version
