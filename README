@@ -2,7 +2,10 @@
 ### Changes
 updated iw version 		-> 4.1.4
 updated libnl version		-> 3.4.0
-smarter version handling .. 
+
+easier version handling ...
+you just need to drop the 2 required URL to the sources and it should work
+assuming they both are .tar* files 
   
 ***
 *** Compile iw (the wireless LAN utility) for android.
