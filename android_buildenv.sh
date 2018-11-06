@@ -1,5 +1,9 @@
 #!/bin/sh
-NDK="/usr/opt/android-ndk-r10e-linux-x86_64"
+
+## change this to your actual location !!
+NDK="/home/paolo/android-sdk/android-ndk-r14b"
+
+
 CC_DIR="$NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin"
 SYSROOT="$NDK/platforms/android-21/arch-arm"
 

@@ -1,44 +1,50 @@
 #!/bin/sh
 set -e
 
-libnl_tgz="libnl-3.2.25.tar.gz"
-libnl_url="http://www.infradead.org/~tgr/libnl/files/$libnl_tgz"
+LIB_NL_URL="https://github.com/thom311/libnl/releases/download/libnl3_4_0/libnl-3.4.0.tar.gz"
+IW_SRC_URL="https://git.kernel.org/pub/scm/linux/kernel/git/jberg/iw.git/snapshot/iw-4.14.tar.gz"
+BUILD_DIR="build"
 
-iw_txz="iw-4.1.tar.xz"
-iw_url="https://kernel.org/pub/software/network/iw/$iw_txz"
+LIB_NL_TGZ="${LIB_NL_URL##*/}"
+IW_SRC_TGZ="${IW_SRC_URL##*/}"
 
-libnl_dir="${libnl_tgz%.tar.gz}"
-iw_dir="${iw_txz%.tar.xz}"
-prefix="`pwd`/prefix"
 
-# fetch all sourcecode archive
-[ -f "$libnl_tgz" ] || wget $libnl_url
-[ -f "$iw_txz" ]    || wget "$iw_url"
+[ -f "$LIB_NL_TGZ"  ]   	&&  echo "got ..			$LIB_NL_TGZ" 	||   	wget   "$LIB_NL_URL"
+[ -f "$IW_SRC_TGZ" ]   		&&  echo "got ..			$IW_SRC_TGZ"   	||   	wget   "$IW_SRC_URL"
 
-# output directory
-[ -d "$prefix" ]    || mkdir prefix
+LIB_NL_DIR="${LIB_NL_TGZ%.tar*}"
+IW_SRC_DIR="${IW_SRC_TGZ%.tar*}"
 
 # unpack source files
-[ -d "$libnl_dir" ] || tar xf "${libnl_tgz}"
-[ -d "$iw_dir"    ] || tar xf "${iw_txz}"
+[ -d "$LIB_NL_DIR" ] 		&&  echo "found libnl sources in	$LIB_NL_DIR"	||	echo "unTar  .. $LIB_NL_TGZ";	tar xf "${LIB_NL_TGZ}"
+[ -d "$IW_SRC_DIR"    ]		&&  echo "found iw    sources in 	$IW_SRC_DIR"	|| 	echo "unTar  .. $IW_SRC_TGZ";  	tar xf "${IW_SRC_TGZ}"
+
+# output directory
+prefix="`pwd`/$BUILD_DIR"
+[ -d "$prefix" ]    || mkdir $BUILD_DIR
+
+echo "building in .. $prefix ..."
+
 
 # build libnl
 if ! [ -f "${prefix}/lib/libnl-3.a" ] ; then
     (
-	cd "$libnl_dir"
+	cd "$LIB_NL_DIR"
 	../android_buildenv.sh ./configure \
 		--host=arm-linux-androideabi \
-		--enable-static --disable-shared \
-		--disable-pthreads --disable-cli \
+		--enable-static	\
+		--disable-shared \
+		--disable-pthreads \
+		--disable-cli \
 		--prefix=$prefix
 	../android_buildenv.sh make
 	../android_buildenv.sh make install
     )
 fi
 
-if ! [ -f "${iw_dir}/iw" ] ; then
+if ! [ -f "${IW_SRC_DIR}/iw" ] ; then
     (
-	cd "$iw_dir"
+	cd "$IW_SRC_DIR"
 	if ! [ -f ".patch.applied" ] ; then
 		patch <../diff_iw41_Makefile_libm.patch
 		touch ".patch.applied"
