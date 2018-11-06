@@ -26,7 +26,7 @@ Usage:
 
  
 Assumes the android SDK in /usr/opt/android-ndk-r10e-linux-x86_64/.   
-Output binary will be iw-4.1.4/iw,   
+Output binary will be iw-4.14/iw,   
  copy it somewhere to your mobile phone.  
    
 Tested on a Samsung Galaxy S4 Mini, running Cyanogenmod 12.1 (Android 5.0).
