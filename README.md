@@ -2,7 +2,7 @@
 ## Changes
 | what      |            | ver  |
 | ------------- |:-------------:| -----:|
-| updated iw version     | [iw](https://git.kernel.org/pub/scm/linux/kernel/git/jberg/iw.git/) 		| 4.1.4 |
+| updated iw version     | [iw](https://git.kernel.org/pub/scm/linux/kernel/git/jberg/iw.git/) 		| 4.14  |
 | updated libnl version  | [libnl](https://github.com/thom311/libnl/releases/)   			| 3.4.0 |
 | added   elf-cleaner 	 | [elf-cleaner](https://github.com/cloned2k16/elf-cleaner.git "Elf Cleaner")   | 0.0.1 |
 
